@@ -17,7 +17,7 @@ def one_hot_encode(df, label):
 	    enc2 = OneHotEncoder()
 	    new_features = enc2.fit_transform(encoded_labels.reshape((-1,1)))
 	    df = df.drop(label, axis=1)
-	    df_one_hot_class = pd.DataFrame(new_features.toarray(), columns=new_labels)
+	    df_one_hot_class = pd.DataFrame(new_features.toarray(), columns=enc.classes_)
 	    df_X = pd.concat([df,df_one_hot_class], axis=1)
 	    return df_X
 
